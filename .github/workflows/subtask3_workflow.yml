@@ -1,0 +1,23 @@
+name: SubTask
+
+on:
+  issues:
+   types:
+     - opened
+  workflow_dispatch:
+
+jobs:
+  WorkFlow: 
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+     - name: First Task
+       run: echo 'Hello Guys!!!'
+     - name: About workflow
+       run: echo 'I learn this much only.'
+     - name: Description of events
+       run: echo '${{ toJSON(github.event) }}' | jq 
+     - name: Issue number
+       run: echo '${{ github.event.issue.number }}'
+    
